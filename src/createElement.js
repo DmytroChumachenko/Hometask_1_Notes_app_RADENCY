@@ -17,6 +17,9 @@ export const CREATEEL = (options) => {
       }
     }
   }
+  if(options.src){
+    ELEMENT.src = options.src;
+  }
   if (options.textContent) {
     ELEMENT.textContent = options.textContent
   }

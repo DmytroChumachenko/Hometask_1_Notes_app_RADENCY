@@ -1,10 +1,74 @@
 .notes-wrapper {
   max-width: 80%;
  margin: 0 auto;
- border-radius: 5px;
 }
 .notes-head {
   background-color: #999999;
   border-radius: 3px;
   color: white;
+  display: flex;
+}
+
+.row-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #E8EAF5;
+  margin-top: 10px;
+}
+.row-elem {
+  text-align: center;
+}
+
+.row-elem:nth-child(1) {
+  flex-basis: 3.5%;
+  margin-left: 10px;
+}
+
+.row-elem:nth-child(2) {
+  flex-basis: 20%;
+}
+
+.row-elem:nth-child(3) {
+  flex-basis: 14%;
+}
+
+.row-elem:nth-child(4) {
+  flex-basis: 10%;
+}
+
+.row-elem:nth-child(5) {
+  flex-basis: 25%;
+}
+
+.row-elem:nth-child(6) {
+  flex-basis: 17%;
+}
+
+.row-elem:nth-child(7) {
+  flex-basis: 10%;
+}
+
+.img-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+}
+.row-img {
+  width: 40px;
+}
+.row-wrapper .row-name {
+  color: #373739;
+}
+.row-wrapper span {
+  color: #A5A6AE;
+}
+
+.icon {
+  margin-left: 8px;
+  background-color: #A9A9AE;
+  width: 35px;
 }
