@@ -1,0 +1,10 @@
+.notes-wrapper {
+  max-width: 80%;
+ margin: 0 auto;
+ border-radius: 5px;
+}
+.notes-head {
+  background-color: #999999;
+  border-radius: 3px;
+  color: white;
+}
