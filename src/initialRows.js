@@ -1,5 +1,4 @@
-export const ROWS = {
-  row: [{
+export const ROWS = [{
       main: 'Task',
       image: '../image/task.png',
       name: 'Shopping list',
@@ -23,7 +22,7 @@ export const ROWS = {
         day: "2-digit",
       }),
       category: 'Random Thought',
-      content: 'the evolution',
+      content: 'the evolution of primates which was known all these years',
       dates: '',
       icons: ['../image/edit.png', '../image/archive.png', '../image/delete.svg']
     },
@@ -42,4 +41,3 @@ export const ROWS = {
       icons: ['../image/edit.png', '../image/archive.png', '../image/delete.svg']
     }
   ]
-}
