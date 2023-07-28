@@ -7,6 +7,8 @@ import {
 import { ROWS } from "./initialRows.js";
 import { CLEARROWS } from "./clearRows.js";
 
+import { CREATEMODALWINDOW , openModWin} from "./modalWindow.js";
+
 export const CREATEROW = (options) => {
 
   const HEAD = document.querySelector('.notes-wrapper');
@@ -107,6 +109,11 @@ export const CREATEROW = (options) => {
         // changeRow(ROWS)
       }
     })
+  })
+  const btnCreate = document.querySelector('.btn');
+  btnCreate.addEventListener('click', () => {
+    CREATEMODALWINDOW();
+    openModWin()
   })
 
 }

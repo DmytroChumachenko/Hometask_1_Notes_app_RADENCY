@@ -7,4 +7,5 @@ document.addEventListener("DOMContentLoaded", () => {
   createHead();
   CREATEROW(ROWS);
   changeRow(ROWS);
+  
 })
