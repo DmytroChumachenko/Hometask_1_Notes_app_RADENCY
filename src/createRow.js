@@ -2,15 +2,6 @@ import {
   CREATEEL
 } from "./createElement.js";
 
-import {
-  CLEARROWS
-} from "./clearRows.js";
-
-import {
-  CREATEMODALWINDOW,
-  openModalWindow,
-  closeModalWindow
-} from "./modalWindow.js";
 
 
 export const CREATEROW = (arrOfObjects) => {
@@ -100,29 +91,5 @@ export const CREATEROW = (arrOfObjects) => {
     rowDiv.append(ROWIMAGEWRAPPER, ROWNAME, ROWDATE, ROWCATEGORY, ROWCONTENT, ROWALLDATES, ROWICONS);
     HEAD.append(rowDiv);
   }
-
-  let arrOfDivsRowWrappers = document.querySelectorAll('.row-wrapper');
-
-  arrOfDivsRowWrappers.forEach(row => {
-    row.addEventListener('click', (event) => {
-      if (event.target.classList.contains('icon-delete')) {
-        const divRowWrapper = event.target.closest('.row-wrapper');
-        arrOfObjects.splice(divRowWrapper.dataset.id, 1);
-        console.log(arrOfObjects);
-        CLEARROWS();
-        CREATEROW(arrOfObjects);
-      }
-    })
-  })
-
-
-  const btnCreate = document.querySelector('.btn');
-  btnCreate.addEventListener('click', () => {
-    CREATEMODALWINDOW();
-    openModalWindow(arrOfObjects);
-    const closeModalBtn = document.querySelector(".btn-close");
-    closeModalBtn.addEventListener("click", closeModalWindow);
-  });
-
 
 }
