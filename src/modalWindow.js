@@ -2,12 +2,15 @@ import {
   CREATEEL
 } from "./createElement.js";
 
- const CREATEMODALWINDOW = () => {
-  const BODY = document.querySelector('body')
+
+const CREATEMODALWINDOW = () => {
+  const BODY = document.querySelector('body');
+  //***************Creating 
   let section = CREATEEL({
     tag: 'section',
     classes: ['modal', 'hidden']
   });
+  //*************** Button Closed
   let div1 = CREATEEL({
     tag: 'div',
     classes: 'flex'
@@ -18,13 +21,14 @@ import {
     textContent: '⨉'
   });
 
+  //**************Name
   let lblName = CREATEEL({
     tag: 'label',
     classes: 'label-name',
     attributes: {
       'for': 'labelName'
     },
-    textContent: 'Write about name'
+    textContent: "Note's name :"
   });
   let inputName = CREATEEL({
     tag: 'input',
@@ -34,7 +38,78 @@ import {
       'type': 'text'
     }
   });
+  //*************Category
+  let lblCategory = CREATEEL({
+    tag: 'label',
+    classes: 'label-category',
+    attributes: {
+      'for': 'selectCategory'
+    },
+    textContent: "Category :"
+  });
+  let selectCategory = CREATEEL({
+    tag: 'select',
+    attributes: {
+      'id': 'selectCategory',
+    }
+  });
+  let option1 = CREATEEL({
+    tag: 'option',
+    attributes: {
+      'id': 'Task',
+    },
+    textContent: "Task"
+  });
+  let option2 = CREATEEL({
+    tag: 'option',
+    attributes: {
+      'id': 'RandomThought',
+    },
+    textContent: "Random Thought"
+  });
+  let option3 = CREATEEL({
+    tag: 'option',
+    attributes: {
+      'id': 'Idea',
+    },
+    textContent: "Idea"
+  });
+  //**************Content
+  let lblContent = CREATEEL({
+    tag: 'label',
+    classes: 'label-content',
+    attributes: {
+      'for': 'labelContent'
+    },
+    textContent: "Note's content :"
+  });
+  let inputContent = CREATEEL({
+    tag: 'input',
+    classes: 'input-content',
+    attributes: {
+      'id': 'inputContent',
+      'type': 'text'
+    }
+  });
 
+  //************Date
+  let lblDate = CREATEEL({
+    tag: 'label',
+    classes: 'label-date',
+    attributes: {
+      'for': 'labelDate'
+    },
+    textContent: "Change Note's Date :"
+  });
+  let inputDate = CREATEEL({
+    tag: 'input',
+    classes: 'input-date',
+    attributes: {
+      'id': 'inputDate',
+      'type': 'date'
+    }
+  });
+  //***************** Button Submit
   let btnSubmit = CREATEEL({
     tag: 'button',
     classes: 'btn-submit',
@@ -46,27 +121,33 @@ import {
     classes: ['overlay', 'hidden']
   });
 
+  //******************** Appending
+  selectCategory.append(option1, option2, option3)
   div1.append(btnX);
-  section.append(div1, lblName, inputName, btnSubmit);
+  section.append(div1, lblName, inputName, lblCategory, selectCategory,
+    lblContent, inputContent, lblDate, inputDate, btnSubmit);
   BODY.append(section, div2);
 }
 
-let openModWin = () => {
+let openModalWindow = () => {
   const modal = document.querySelector(".modal");
   const overlay = document.querySelector(".overlay");
-  const closeModalBtn = document.querySelector(".btn-close");
-  const openModal = function () {
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-  };
-  openModal();
-  let closemodal = () => {
-    modal.classList.add("hidden");
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+}
+
+let closeModalWindow = () => {
+  const modal = document.querySelector(".modal");
+  const overlay = document.querySelector(".overlay");
+  modal.classList.add("hidden");
   overlay.classList.add("hidden");
-  }
-  closeModalBtn.addEventListener("click", closemodal)
+  document.querySelector('.modal').remove();
+  document.querySelector('.overlay').remove();
 }
 
 
-
-export{CREATEMODALWINDOW,openModWin}
+export {
+  CREATEMODALWINDOW,
+  openModalWindow,
+  closeModalWindow
+}

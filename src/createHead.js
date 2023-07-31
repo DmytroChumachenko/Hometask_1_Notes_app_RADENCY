@@ -45,14 +45,19 @@ export let createHead = () => {
     tag: 'div',
     classes: 'row-elem'
   });
-  const CREATEBUTTON = CREATEEL({
+  const BTNWRAPPER = CREATEEL({
+    tag: 'div',
+    classes: 'btn-wrapper'
+  });
+  const BTNCREATE = CREATEEL({
     tag: 'button',
     classes: 'btn',
     textContent: 'Create Notes'
   });
+  BTNWRAPPER.append(BTNCREATE)
   NOTESHEAD.append(NOTESIMG,NOTESNAME, NOTESDATE, NOTESCATEGORY, NOTESCONTENT, NOTESALLDATES,NOTESICONS);
   NOTESWRAPPER.append(NOTESHEAD);
-  BODY.append(NOTESWRAPPER,CREATEBUTTON);
+  BODY.append(NOTESWRAPPER,BTNWRAPPER);
   // const myElement = createElement({
   //   tag: 'div',
   //   classes: ['my-class'],

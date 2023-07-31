@@ -1,5 +1,5 @@
 export const ROWS = [{
-      main: 'Task',
+    
       image: '../image/task.png',
       name: 'Shopping list',
       created: new Date().toLocaleDateString("en-US", {
@@ -13,7 +13,7 @@ export const ROWS = [{
       icons: ['../image/edit.png', '../image/archive.png', '../image/delete.svg']
     },
     {
-      main: 'Random Thought',
+     
       image: '../image/thinking-male.png',
       name: 'theory of human',
       created: new Date().toLocaleDateString("en-US", {
@@ -27,7 +27,7 @@ export const ROWS = [{
       icons: ['../image/edit.png', '../image/archive.png', '../image/delete.svg']
     },
     {
-      main: 'Idea',
+    
       image: '../image/idea.png',
       name: 'New feature',
       created: new Date().toLocaleDateString("en-US", {
