@@ -6,5 +6,5 @@ import { toListenROws } from "./src/workWithRows.js";
 document.addEventListener("DOMContentLoaded", () => {
   createHead();
   CREATEROW(ROWS);
-  toListenROws()
+  toListenROws();
 })

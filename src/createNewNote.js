@@ -1,7 +1,12 @@
-
+import {
+  CREATEROW
+} from "./createRow.js";
+import {
+  closeModalWindow
+} from "./modalWindow.js";
 export let createNote = (arr) => {
   const BTNSUBMIT = document.querySelector('.btn-submit');
-  
+
   BTNSUBMIT.addEventListener("click", () => {
     let image;
     let name = document.querySelector('.input-name').value;
@@ -13,6 +18,7 @@ export let createNote = (arr) => {
     let category = document.querySelector('#selectCategory').value;
     let content = document.querySelector('.input-content').value;
     let dateTag = document.querySelector('.input-date').value;
+
     let date = getDate(dateTag);
     if (category === "Task") {
       image = '../image/task.png';
@@ -23,22 +29,31 @@ export let createNote = (arr) => {
     if (category === "Idea") {
       image = '../image/idea.png';
     }
-    let newObj = {
-      image: image,
-      name: name,
-      created: dateCreated,
-      category: category,
-      content: content,
-      dates: date,
-      icons: ['../image/edit.png', '../image/archive.png', '../image/delete.svg']
-    }
-    arr.push(newObj);
+    let checkName = name.length !== 0 && typeof name === 'string' && isNaN(+name);
+    let checkContent = content.length !== 0;
+    let checkDate = dateTag.length !== 0;
 
-    let arrOfRows = document.querySelectorAll('.row-wrapper');
-    arrOfRows.forEach(row => {
-      row.remove()
-    })
-    
+
+    if (checkName && checkContent && checkDate) {
+      let newObj = {
+        image: image,
+        name: name.replace(/^\w/, (firstLetter) => firstLetter.toUpperCase()),
+        created: dateCreated,
+        category: category,
+        content: content,
+        dates: date,
+        icons: ['../image/edit.png', '../image/archive.png', '../image/delete.svg']
+      }
+
+      arr.push(newObj);
+
+      let arrOfRows = document.querySelectorAll('.row-wrapper');
+      arrOfRows.forEach(row => {
+        row.remove()
+      });
+      CREATEROW(arr);
+      closeModalWindow();
+    }
   })
 }
 
@@ -54,4 +69,3 @@ function getDate(tag) {
   const formattedDate = formatDate(date);
   return formattedDate;
 }
-

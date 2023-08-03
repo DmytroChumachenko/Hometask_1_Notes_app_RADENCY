@@ -82,6 +82,7 @@
   margin-left: 8px;
   background-color: #A9A9AE;
   width: 35px;
+  cursor: pointer;
 }
 
 .btn-wrapper {
@@ -170,4 +171,16 @@ button {
 
 .hidden {
   display: none;
+}
+
+/*Tips for validation*/
+.tip {
+  position: absolute;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  visibility: hidden;
+  top: -30px;
+  left: 0;
 }

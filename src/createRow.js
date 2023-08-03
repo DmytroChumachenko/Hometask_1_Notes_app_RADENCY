@@ -91,5 +91,4 @@ export const CREATEROW = (arrOfObjects) => {
     rowDiv.append(ROWIMAGEWRAPPER, ROWNAME, ROWDATE, ROWCATEGORY, ROWCONTENT, ROWALLDATES, ROWICONS);
     HEAD.append(rowDiv);
   }
-
 }

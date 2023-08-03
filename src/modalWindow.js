@@ -38,6 +38,11 @@ const CREATEMODALWINDOW = () => {
       'type': 'text'
     }
   });
+  let tipName = CREATEEL({
+    tag: 'div',
+    classes: 'tip',
+    textContent: 'Please enter your name',
+  })
   //*************Category
   let lblCategory = CREATEEL({
     tag: 'label',
@@ -106,7 +111,8 @@ const CREATEMODALWINDOW = () => {
     classes: 'input-date',
     attributes: {
       'id': 'inputDate',
-      'type': 'date'
+      'type': 'date',
+      'required': 'true'
     }
   });
   //***************** Button Submit
@@ -124,9 +130,10 @@ const CREATEMODALWINDOW = () => {
   //******************** Appending
   selectCategory.append(option1, option2, option3)
   div1.append(btnX);
-  section.append(div1, lblName, inputName, lblCategory, selectCategory,
+  section.append(div1, lblName, inputName, tipName, lblCategory, selectCategory,
     lblContent, inputContent, lblDate, inputDate, btnSubmit);
   BODY.append(section, div2);
+  
 }
 
 let openModalWindow = () => {
@@ -134,6 +141,10 @@ let openModalWindow = () => {
   const overlay = document.querySelector(".overlay");
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
+  const input = document.querySelector('.input-name');
+  const tip = document.querySelector('.tip');
+  input.addEventListener('focus', showTooltip(tip));
+  input.addEventListener('blur', hideTooltip(tip));
 }
 
 let closeModalWindow = () => {
@@ -145,6 +156,16 @@ let closeModalWindow = () => {
   document.querySelector('.overlay').remove();
 }
 
+
+
+function showTooltip(el) {
+  el.style.visibility = 'visible';
+}
+
+// Function to hide the tooltip
+function hideTooltip(el) {
+  el.style.visibility = 'hidden';
+}
 
 export {
   CREATEMODALWINDOW,

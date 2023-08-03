@@ -2,6 +2,8 @@ import {
   CLEARROWS
 } from "./clearRows.js";
 
+import { createNote } from "./createNewNote.js";
+
 import {
   CREATEMODALWINDOW,
   openModalWindow,
@@ -11,14 +13,13 @@ import {
 
 export let toListenROws = () => {
   let arrOfDivsRowWrapper = document.querySelectorAll('.row-wrapper');
+  let arr = getArrOfObjects(arrOfDivsRowWrapper);
   arrOfDivsRowWrapper.forEach(row => {
     row.addEventListener('click', (event) => {
       console.log(event.target);
-      if (event.target.classList.contains('icon-delete')) {
-        let arr = getArrOfObjects(arrOfDivsRowWrapper);
-        console.log(arr);
-     
-      }
+      // if (event.target.classList.contains('icon-delete')) {
+      //   let arr = getArrOfObjects(arrOfDivsRowWrapper);
+      // }
     })
   })
   // arrOfDivsRowWrapper.forEach(row => {
@@ -32,17 +33,26 @@ export let toListenROws = () => {
   //     }
   //   })
   // })
+
+  const btnCreate = document.querySelector('.btn');
+  btnCreate.addEventListener('click', () => {
+    CREATEMODALWINDOW();
+    openModalWindow(arr);
+    createNote(arr);
+    const closeModalBtn = document.querySelector(".btn-close");
+    closeModalBtn.addEventListener("click", closeModalWindow);
+  });
 }
 
 function getArrOfObjects(arr) {
-  let newarr =[];
+  let newarr = [];
   arr.forEach(row => {
     const image = row.querySelector('.row-img').src;
     const name = row.querySelector('.row-name').textContent;
-    const created = row.querySelectorAll('.row-elem')[1].textContent;
-    const category = row.querySelectorAll('.row-elem')[2].textContent;
-    const content = row.querySelectorAll('.row-elem')[3].textContent;
-    const dates = row.querySelectorAll('.row-elem')[4].textContent;
+    const created = row.querySelectorAll('.row-elem')[2].textContent;
+    const category = row.querySelectorAll('.row-elem')[3].textContent;
+    const content = row.querySelectorAll('.row-elem')[4].textContent;
+    const dates = row.querySelectorAll('.row-elem')[5].textContent;
     const icons = Array.from(row.querySelectorAll('.row-icons img')).map(img => img.src);
     const dataObject = {
       image,
